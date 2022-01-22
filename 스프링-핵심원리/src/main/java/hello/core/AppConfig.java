@@ -37,6 +37,7 @@ public class AppConfig {
     @Bean
     //할인정책
     public DiscountPolycy discountPolycy(){
+        System.out.println("dd");
         return new RateDiscountPolycy();
     }
 }
