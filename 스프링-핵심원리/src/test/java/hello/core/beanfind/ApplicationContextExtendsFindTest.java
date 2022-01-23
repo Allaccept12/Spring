@@ -22,8 +22,7 @@ public class ApplicationContextExtendsFindTest {
     @DisplayName("부모 타입으로 조회시 자식이 둘이상 있으면 중복오류")
     void findBeanByParentTypeDuplicate() {
         DiscountPolycy bean = ac.getBean(DiscountPolycy.class);
-        assertThrows(NoUniqueBeanDefinitionException.class, () ->
-                ac.getBean(DiscountPolycy.class));
+
     }
 
     @Test
@@ -43,7 +42,7 @@ public class ApplicationContextExtendsFindTest {
     @DisplayName("부모 타입으로 모두 조회")
     void findAllBeanParentType() {
         Map<String, DiscountPolycy> beansOfType = ac.getBeansOfType(DiscountPolycy.class);
-        assertThat(beansOfType.size()).isEqualTo(2);
+        assertThat(beansOfType.size()).isEqualTo(1);
         for (String key : beansOfType.keySet()) {
             System.out.println("key = " + key + "   " + beansOfType.get(key));
         }
@@ -57,9 +56,9 @@ public class ApplicationContextExtendsFindTest {
             return new RateDiscountPolycy();
         }
 
-        @Bean
-        public DiscountPolycy fixDiscountPolycy() {
-            return new FixDiscountPolycy();
-        }
+//        @Bean
+//        public DiscountPolycy fixDiscountPolycy() {
+//            return new FixDiscountPolycy();
+//        }
     }
 }

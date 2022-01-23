@@ -12,6 +12,14 @@ public class OrderServiceImpl implements OrderService {
     private final MemberRepository memberRepository;
     private final DiscountPolycy discountPolycy;
 
+//    public void setDiscountPolycy(DiscountPolycy discountPolycy) {
+//        this.discountPolycy = discountPolycy;
+//    }
+//
+//    public void setMemberRepository(MemberRepository memberRepository) {
+//        this.memberRepository = memberRepository;
+//    }
+
     @Autowired
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolycy discountPolycy) {
         this.memberRepository = memberRepository;

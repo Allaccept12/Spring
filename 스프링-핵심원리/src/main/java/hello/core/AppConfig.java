@@ -27,6 +27,7 @@ public class AppConfig {
     public OrderService orderService(){
         System.out.println("call AppConfig.orderService");
         return new OrderServiceImpl(getMemberRepository(), discountPolycy());
+        //return null
     }
     @Bean
     //레파지토리
@@ -37,7 +38,6 @@ public class AppConfig {
     @Bean
     //할인정책
     public DiscountPolycy discountPolycy(){
-        System.out.println("dd");
         return new RateDiscountPolycy();
     }
 }
