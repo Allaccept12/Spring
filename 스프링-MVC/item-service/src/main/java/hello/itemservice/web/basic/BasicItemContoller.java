@@ -57,13 +57,19 @@ public class BasicItemContoller {
         return "/basic/item";
     }
 
-    @PostMapping("/add")
+//    @PostMapping("/add")
     public String addItemV2(@ModelAttribute("item") Item item, Model model) {
         itemRepository.save(item);
 //        model.addAttribute("item",item); //자동추가, 생략가능 @ModelAttribute 어노테이션 기능
         return "/basic/item";
     }
+    @PostMapping("/add")
+    public String addItemV3(@ModelAttribute("item") Item item) {
+        itemRepository.save(item);
+        return "redirect:/basic/items/" + item.getId();
 
+    }
+    
     @GetMapping("/{itemId}/edit")
     public String editForm(@PathVariable Long itemId, Model model) {
         Item item = itemRepository.findById(itemId);
